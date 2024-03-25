@@ -1,0 +1,15 @@
+A= int (input("Which Operation You Want to Perform \n\nFor Addtion Press 1 \nFor Subtraction Press 2 \nFor Multiplication Press 3 \nFor Division Press 4 \nFor Modulus Press 5 \nEnter Your Number : " ))
+a=float(input("Enter Your First Number : "))
+b = float(input("Enter Your Second Number : "))
+if (A==1):
+  print ("Addition",a+b)
+elif(A==2):
+  print ("Subtraction",a-b)
+elif(A==3):
+  print ("Multiplication",a*b)
+elif(A==4):
+  print("Division",a/b)
+elif(A==5):
+  print("Modulus", a%b)
+else:
+  print ("Your Number Is Invalid")

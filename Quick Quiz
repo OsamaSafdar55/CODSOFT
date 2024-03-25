@@ -1,0 +1,65 @@
+
+
+
+import random
+
+# Quiz questions
+questions = {
+    "What is the capital of Pakistan?": "Islamabad",
+    "Who is the Founder of Pakistan?": "Quaid-e-Azam",
+    "Which is the National animal of Pakistan?": "Markhor",
+    "What is the chemical symbol for water?": "H2O",
+    "What is the tallest mammal?": "Giraffe"
+}
+
+def present_question(question):
+    print(question)
+    user_answer = input("Your answer: ").strip().capitalize()
+    return user_answer
+
+def evaluate_answer(user_answer, correct_answer, score):
+    if user_answer == correct_answer:
+        print("Correct!")
+        return score + 1
+    else:
+        print("Incorrect. The correct answer is:", correct_answer)
+        return score
+
+def display_final_score(score, total_questions):
+    percentage = (score / total_questions) * 100
+    print("\nFinal Score: {}/{}".format(score, total_questions))
+    print("You scored {:.2f}%.".format(percentage))
+    if percentage == 100:
+        print("Congratulations! You got all the questions correct!")
+    elif percentage >= 75:
+        print("Well done! You did great!")
+    elif percentage >= 50:
+        print("Not bad, but you could do better.")
+    else:
+        print("Better luck next time!")
+
+def play_quiz(questions):
+    total_questions = len(questions)
+    score = 0
+    for question, correct_answer in questions.items():
+        user_answer = present_question(question)
+        score = evaluate_answer(user_answer, correct_answer, score)
+    display_final_score(score, total_questions)
+
+def main():
+    print("Welcome to the Quiz Game!")
+    print("You'll be asked multiple-choice questions.")
+    print("Let's see how many you can answer correctly!")
+    while True:
+        play_quiz(questions)
+        play_again = input("\nDo you want to play again? (yes/no): ").strip().lower()
+        if play_again != 'yes':
+            print("Thank you for playing!")
+            break
+
+if __name__ == "__main__":
+    main()
+
+
+
+
